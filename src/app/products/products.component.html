@@ -1,0 +1,8 @@
+<h1>My products</h1>
+<form (ngSubmit)="onAddProduct(f)" #f="ngForm">
+  <input type="text" ngModel name="productName" required>
+  <!-- <button (click)="onAddProduct()" type="submit">Add product</button> -->
+  <button type="submit" [disabled]="!f.valid">Add product</button>
+</form>
+<app-product *ngFor="let product of products" [productName]='product' (productClicked)="updateProducts(product)"></app-product>
+
